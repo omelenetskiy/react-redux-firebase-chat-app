@@ -1,0 +1,29 @@
+$borser-separator-color: rgba(155, 155, 155, .2)
+$dark-green: #0B3835
+$green-color-light: rgba(174, 213, 129, .2)
+
+.chat__main
+    background-color: $green-color-light
+    background-repeat: no-repeat
+    background-position: center
+    height: 100%
+    min-width: 320px
+    flex-grow: 1
+    display: inline-flex
+    flex-direction: column
+    justify-content: space-between
+.chat__main.no-conversations
+    align-items: center
+    justify-content: center
+    img 
+        width: 200px
+@media screen and (max-width: 768px)
+    .chat__main
+        position: absolute
+        left: 0
+        width: 100%
+        transition: all .4s linear
+        -webkit-transform: translateZ(0)
+    .chat__main.chat__main_active
+        left: 300px
+        

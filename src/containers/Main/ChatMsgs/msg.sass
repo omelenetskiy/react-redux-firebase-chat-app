@@ -1,0 +1,136 @@
+$dark-green: #0B3835
+
+.chat__main__messages
+    flex-grow: 1
+    overflow: hidden
+    overflow: auto
+    padding: 10px
+    .message
+        width: 100%
+        display: inline-flex
+        flex-direction: row
+        flex-wrap: nowrap
+        align-items: flex-start
+        margin: 15px 0
+        &:hover
+            .message__data
+                &__timestamp
+                    a 
+                        height: auto
+                        opacity: 1
+                        margin: 0 10px
+        &__avatar
+            margin-right: 25px
+            color: $dark-green
+            img 
+                width: 30px
+                height: 30px
+                border-radius: 50%
+        &__data
+            display: inline-flex
+            flex-direction: column
+            align-items: flex-start
+            background-color: #fff
+            padding: 8px
+            border-radius: 4px
+            position: relative
+            &__user-name
+                h4 
+                    color: $dark-green
+            &__text
+                p
+                    margin-bottom: 5px
+                img
+                    width: 100%
+                    height: auto
+                    max-width: 320px
+            &__timestamp
+                width: 100%
+                display: inline-flex
+                flex-direction: row-reverse
+                flex-wrap: nowrap
+                justify-content: space-between
+                a 
+                    height: 0
+                    opacity: 0
+                    transition: opacity .5s linear
+                    margin: 0 10px
+                    i
+                        color: gray
+                p
+                    font-size: 12px
+                    color: gray
+                    margin: 0
+                    padding: 0
+            &::before
+                content: ''
+                position: absolute
+                left: -10px
+                top: 0
+                width: 0
+                height: 0
+                border-top: 13px solid #ffffff
+                border-left: 13px solid transparent
+        &__text
+            max-width: 400px
+        &__timestamp
+            width: 100%
+            display: inline-flex
+            flex-direction: row
+            flex-wrap: nowrap
+            justify-content: space-between
+            a 
+                height: 0
+                opacity: 0
+                transition: opacity .5s linear
+                margin: 0 10px
+                i
+                    color: gray
+            p
+                font-size: 12px
+                color: gray
+                margin: 0
+                padding: 0
+    .message.message-prop
+        flex-direction: row-reverse
+        &:hover
+            .message__data
+                &__timestamp
+                    a 
+                        height: auto
+                        opacity: 1
+        .message__avatar
+            margin-right: 0
+            margin-left: 25px
+            img 
+                width: 30px
+                height: 30px
+                border-radius: 50%
+        .message__data
+            background-color: rgba(203, 251, 142, 1)
+            display: inline-flex
+            flex-direction: column
+            align-items: flex-end
+            position: relative
+            &::before
+                position: absolute
+                left: auto
+                right: -10px
+                border-left: 0
+                border-top: 13px solid rgba(203, 251, 142, 1)
+                border-right: 13px solid transparent
+            &__user-name
+                h4 
+                    color: $dark-green
+            &__timestamp
+                width: 100%
+                display: inline-flex
+                flex-direction: row
+                flex-wrap: nowrap
+                justify-content: space-between
+                a 
+                    height: 0
+                    opacity: 0
+                    transition: opacity .5s linear
+                    i
+                        color: gray

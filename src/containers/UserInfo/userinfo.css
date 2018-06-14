@@ -1,0 +1,129 @@
+.user-info {
+  width: 100%;
+  overflow: auto;
+  background-color: #fbfbfb; }
+  .user-info__header {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #414041;
+    color: #ffffff;
+    padding: 20px; }
+    .user-info__header h2 {
+      font-size: 22px;
+      font-weight: normal; }
+    .user-info__header button {
+      margin-right: 30px; }
+      .user-info__header button i {
+        color: #ffffff; }
+  .user-info__tabs {
+    border-bottom: 1px solid #eeeeee; }
+    .user-info__tabs ul {
+      width: 100%;
+      display: inline-flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between; }
+      .user-info__tabs ul li {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        padding: 15px; }
+        .user-info__tabs ul li a {
+          text-decoration: none;
+          font-size: 18px; }
+        .user-info__tabs ul li .active {
+          border-bottom: 2px solid red;
+          font-weight: 600; }
+  .user-info__wrapper {
+    width: 100%;
+    align-items: stretch;
+    display: inline-flex;
+    justify-content: center; }
+    .user-info__wrapper .user-info__restore {
+      max-width: 320px;
+      min-width: 280px; }
+    .user-info__wrapper .user-info__card {
+      width: 100%;
+      padding: 0 30px;
+      max-width: 780px;
+      display: inline-flex;
+      justify-content: center;
+      flex-direction: column; }
+      .user-info__wrapper .user-info__card .card__avatar {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 50px;
+        max-width: 240px; }
+        .user-info__wrapper .user-info__card .card__avatar .card__avatar-wrapper {
+          border-radius: 50%;
+          border: 10px solid #414041;
+          overflow: hidden;
+          width: 140px;
+          height: 140px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 10px; }
+          .user-info__wrapper .user-info__card .card__avatar .card__avatar-wrapper img {
+            width: 140px;
+            min-height: 140px; }
+        .user-info__wrapper .user-info__card .card__avatar .file_upload {
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative; }
+          .user-info__wrapper .user-info__card .card__avatar .file_upload label {
+            cursor: pointer; }
+            .user-info__wrapper .user-info__card .card__avatar .file_upload label input[type=file] {
+              width: 0.1px;
+              height: 0.1px;
+              opacity: 0;
+              overflow: hidden;
+              position: absolute;
+              z-index: -1; }
+      .user-info__wrapper .user-info__card .card__data .data__field {
+        border-bottom: 1px solid #eeeeee; }
+        .user-info__wrapper .user-info__card .card__data .data__field .ui-text-headline {
+          margin-bottom: 0; }
+        .user-info__wrapper .user-info__card .card__data .data__field h3.ui-text-subhead {
+          color: #cac8c7;
+          margin-bottom: 0; }
+  .user-info .card-headline {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; }
+    .user-info .card-headline h2 {
+      margin: 0;
+      padding: 0;
+      font-size: 18px; }
+  .user-info .card-wrapper {
+    padding: 20px 0;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+
+@media screen and (max-width: 768px) {
+  .user-info {
+    padding: 10px; }
+    .user-info .user-info__header h2 {
+      font-size: 26px; }
+    .user-info .user-info__wrapper .card-headline h2 {
+      font-size: 20px;
+      margin: 0;
+      padding: 0; }
+    .user-info .card-wrapper {
+      flex-direction: column; }
+      .user-info .card-wrapper .card__avatar {
+        margin-bottom: 20px; }
+      .user-info .card-wrapper .card__data {
+        width: 100%; }
+    .user-info .user-info__actions.ui-card__actions button {
+      margin: 10px 0; } }

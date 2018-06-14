@@ -1,0 +1,42 @@
+$sidebar-title-bar-height: 54px
+$borser-separator-color: rgba(155, 155, 155, .2)
+$room-height: 45px
+$green-color: rgb(174, 213, 129)
+$green-color-light: rgba(174, 213, 129, .2)  
+$dark-green: #0B3835
+
+.chat__sidebar__rooms
+    .sidebar__rooms__title
+        width: 100%
+        height: $sidebar-title-bar-height
+        padding: 8px 16px
+        display: inline-flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        border-bottom: 1px solid $borser-separator-color
+    .sidebar__rooms__list
+        height: $room-height * 3
+        overflow: auto
+        a
+            width: 100%
+            display: inline-flex
+            flex-direction: row
+            align-items: center
+            flex: 1
+            text-decoration: none
+        a.room_active
+            background-color: rgba(203, 251, 142, 1)
+        .room
+            width: 100%
+            height: $room-height
+            padding: 8px
+            display: inline-flex
+            flex-direction: row
+            align-items: center
+            &:hover
+                cursor: pointer
+                background-color: $green-color-light
+            &__avatar
+                margin-right: 8px
+                color: $dark-green

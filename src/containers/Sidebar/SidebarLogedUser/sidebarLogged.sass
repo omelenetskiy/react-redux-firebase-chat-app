@@ -1,0 +1,47 @@
+$logged-user-bar-height: 75px
+$borser-separator-color: rgba(155, 155, 155, .2)
+$dark-green: #0B3835
+
+.chat__sidebar__logged-user
+    width: 100%
+    height: $logged-user-bar-height
+    display: inline-flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-items: center
+    justify-content: space-between
+    padding: 16px
+    border-bottom: 1px solid $borser-separator-color
+    a
+        text-decoration: none
+    a, .logged-user__wrapper
+        display: flex
+        flex-direction: row
+        align-items: center
+        flex: 1
+        min-width: 0
+        .logged-user__avatar
+            margin-right: 8px
+            color: $dark-green
+            width: 42px
+            height: 42px
+            border-radius: 50%
+            overflow: hidden
+            img
+                width: 42px
+                height: 42px
+        .logged-user__data
+            flex: 1
+            min-width: 0
+            h4, h5
+                margin: 0
+                padding: 0
+                line-height: 1
+            h4
+                font-weight: 500
+                flex: 1
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
+            h5 
+                font-size: 12px

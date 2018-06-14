@@ -1,0 +1,40 @@
+$search-bar-height: 50px
+$logged-user-bar-height: 75px
+$sidebar-title-bar-height: 54px
+$room-height: 45px
+$user-height: 58px
+$chat-height: $room-height * 3 + $user-height * 4 + $search-bar-height + $logged-user-bar-height + $sidebar-title-bar-height * 2
+$dark-green: #0B3835
+
+.ui-button.ui-button_icon
+  color: $dark-green
+  
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%))
+  ::-webkit-scrollbar
+    width:  $size
+    height: $size
+  ::-webkit-scrollbar-thumb
+    background: $primary
+    border-radius: 4px
+  ::-webkit-scrollbar-track
+    background: $secondary
+
+@include scrollbar(5px, #aed581);
+  
+.chat
+  margin: auto
+  height: $chat-height
+  width: 100%
+  min-width: 320px
+  max-width: 1000px
+  display: inline-flex
+  flex-direction: row
+  background-color: #ffffff
+  border-radius: 4px
+  overflow: hidden
+  position: relative
+
+  
+      
+  
+ 

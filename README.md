@@ -1,1 +1,1 @@
-# react-redux-firebase-chat-app
+react-redux-firebase-chat-app

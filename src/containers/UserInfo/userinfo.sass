@@ -1,0 +1,134 @@
+.user-info
+    width: 100%
+    overflow: auto
+    background-color: rgba(251, 251, 251, 1)
+    &__header
+        width: 100%
+        display: inline-flex
+        flex-direction: row
+        align-items: center
+        background-color: rgba(65, 64, 65, 1)
+        color: #ffffff
+        padding: 20px
+        h2 
+            font-size: 22px
+            font-weight: normal
+        button
+            margin-right: 30px
+            i
+                color: #ffffff
+    &__tabs
+        border-bottom: 1px solid #eeeeee
+        ul
+            width: 100%
+            display: inline-flex
+            flex-wrap: nowrap
+            align-items: center
+            justify-content: space-between
+            li
+                display: inline-flex
+                align-items: center
+                justify-content: center
+                flex-grow: 1
+                padding: 15px
+                a
+                    text-decoration: none
+                    font-size: 18px
+                .active
+                    border-bottom: 2px solid red
+                    font-weight: 600
+    &__wrapper
+        width: 100%
+        align-items: stretch
+        display: inline-flex
+        justify-content: center
+        .user-info__restore
+            max-width: 320px
+            min-width: 280px
+        .user-info__card
+            width: 100%
+            padding: 0 30px
+            max-width: 780px
+            display: inline-flex
+            justify-content: center
+            flex-direction: column
+            .card__avatar
+                display: inline-flex
+                flex-direction: column
+                align-items: center
+                padding: 0 50px
+                max-width: 240px
+                .card__avatar-wrapper
+                    border-radius: 50%
+                    border: 10px solid #414041
+                    overflow: hidden
+                    width: 140px
+                    height: 140px
+                    display: inline-flex
+                    align-items: center
+                    justify-content: center
+                    margin-bottom: 10px
+                    img
+                        width: 140px
+                        min-height: 140px
+                .file_upload
+                    display: inline-flex
+                    flex-direction: column
+                    align-items: center
+                    position: relative
+                    label
+                        cursor: pointer
+                        input[type=file]
+                            width: 0.1px
+                            height: 0.1px
+                            opacity: 0
+                            overflow: hidden
+                            position: absolute
+                            z-index: -1
+            .card__data
+                .data__field
+                    border-bottom: 1px solid #eeeeee
+                    .ui-text-headline
+                        margin-bottom: 0
+                    h3.ui-text-subhead
+                        color: rgba(202, 200, 199, 1)
+                        margin-bottom: 0
+    .card-headline
+        width: 100%
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        padding: 10px
+        h2 
+            margin: 0
+            padding: 0
+            font-size: 18px
+    .card-wrapper
+        padding: 20px 0
+        width: 100%
+        display: inline-flex
+        flex-direction: row
+        align-items: center
+        justify-content: center
+
+@media screen and (max-width: 768px)
+    .user-info 
+        padding: 10px
+        .user-info__header
+            h2 
+                font-size: 26px
+        .user-info__wrapper
+            .card-headline
+                h2
+                    font-size: 20px
+                    margin: 0
+                    padding: 0
+        .card-wrapper
+            flex-direction: column
+            .card__avatar
+                margin-bottom: 20px
+            .card__data
+                width: 100%
+        .user-info__actions.ui-card__actions
+            button
+                margin: 10px 0

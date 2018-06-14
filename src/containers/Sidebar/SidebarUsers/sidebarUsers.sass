@@ -1,0 +1,96 @@
+$sidebar-title-bar-height: 54px
+$borser-separator-color: rgba(155, 155, 155, .2)
+$user-height: 58px
+$green-color: rgb(174, 213, 129)
+$dark-green: #0B3835
+$green-color-light: rgba(174, 213, 129, .2)
+$online: #4CAF50
+$offline: #FF7043
+
+.chat__sidebar__users
+    .sidebar__users__title
+        width: 100%
+        height: $sidebar-title-bar-height
+        padding: 8px 16px
+        display: inline-flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        border-top: 1px solid $borser-separator-color
+        border-bottom: 1px solid $borser-separator-color
+    .sidebar__users__list
+        overflow: auto
+        height: $user-height * 4
+        a
+            width: 100%
+            display: inline-flex
+            flex-direction: row
+            align-items: center
+            flex: 1
+            text-decoration: none
+        a.user_active
+            background-color: rgba(203, 251, 142, 1)
+        .user
+            width: 100%
+            display: inline-flex
+            flex-direction: row
+            align-items: center
+            flex: 1
+            height: $user-height
+            padding: 8px
+            min-width: 0
+            &:hover
+                cursor: pointer
+                background-color: $green-color-light
+            &__avatar
+                margin-right: 8px
+                position: relative
+                color: $dark-green
+                img 
+                    width: 42px
+                    height: 42px
+                    border-radius: 50%
+                span.online, span.offline
+                    display: block
+                    position: absolute
+                    bottom: 0
+                    right: 0
+                    width: 12px
+                    height: 12px
+                    border: 2px solid #ffffff
+                    border-radius: 50%
+                span.online
+                    background-color: $online
+                span.offline
+                    background-color: $offline
+            &__data
+                display: inline-flex
+                flex-direction: row
+                align-items: center
+                justify-content: space-between 
+                flex-grow: 1
+                flex: 1
+                min-width: 0
+                &__name-text
+                    display: flex
+                    flex-direction: column
+                    flex: 1
+                    min-width: 0
+                    h4
+                        white-space: nowrap
+                        overflow: hidden
+                        text-overflow: ellipsis
+                    p
+                        color: gray
+                        margin: 0
+                        padding: 0
+                        white-space: nowrap
+                        overflow: hidden
+                        text-overflow: ellipsis
+                &__noti
+                    background-color: $green-color
+                    color: #ffffff
+                    padding: 1px 5px
+                    margin-left: 15px
+                    border-radius: 4px
+    

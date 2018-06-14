@@ -1,0 +1,23 @@
+$search-bar-height: 50px
+$borser-separator-color: rgba(155, 155, 155, .2)
+$green-color: rgb(174, 213, 129)
+$green-color-light: rgba(174, 213, 129, .2)
+
+.chat__sidebar__search-bar
+    width: 100%
+    height: $search-bar-height
+    display: inline-flex
+    align-items: center
+    justify-content: space-around
+    padding: 8px 16px
+    border-bottom: 1px solid $borser-separator-color
+    input[type=text]
+        width: 100%
+        background-color: $green-color-light
+        border: 0
+        padding: 8px
+        margin-right: 8px
+        border-radius: 4px
+        color: #000000
+        &:focus
+            outline: 2px solid $green-color

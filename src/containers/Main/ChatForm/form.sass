@@ -1,0 +1,38 @@
+$borser-separator-color: rgba(155, 155, 155, .2)
+$dark-green: #0B3835
+.chat__main__form
+    background-color: #fff
+    .input__form
+        width: 100%
+        min-height: 60px
+        height: 60px
+        padding: 10px 8px
+        border-top: 1px solid $borser-separator-color
+        border-bottom: 1px solid $borser-separator-color
+        form
+            width: 100%
+            display: inline-flex
+            flex-direction: row
+            flex-wrap: nowrap
+            justify-content: space-between
+            align-items: center
+            input[type=text]
+                flex-grow: 1
+                border: 0
+                padding: 0 10px
+            input[type=file]
+                width: 0.1px
+                height: 0.1px
+                opacity: 0
+                overflow: hidden
+                position: absolute
+                z-index: -1
+            label
+                display: inline-flex
+                align-items: center
+                justify-content: center
+                cursor: pointer
+                padding: 5px
+                border-radius: 50%
+                i
+                    color: $dark-green
