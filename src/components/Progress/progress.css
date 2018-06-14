@@ -1,7 +1,0 @@
-.progress {
-  display: block;
-  width: 100%; }
-  .progress .bar {
-    display: block;
-    height: 3px;
-    background-color: rgba(55, 123, 86, 0.8); }
