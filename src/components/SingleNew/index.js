@@ -1,9 +1,10 @@
 import React from 'react';
+import news from '../../static/img/bg/news.png';
 import './new.sass';
 
 const SingleNew = ({ urlToImage, description, url, title }) => {
 	const divStyle = {
-		backgroundImage: 'url(' + urlToImage + ')',
+		backgroundImage: `url(${urlToImage ? urlToImage : news})`
 	};
 	return (
 		<a href={url} target="_blank">

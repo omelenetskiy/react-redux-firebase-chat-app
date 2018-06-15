@@ -92,7 +92,7 @@ class UserCard extends Component {
 						<AuthButton
 							onClick={this.uploadPhoto}
 							className="ui-button_raised"
-							buttonName="APPLY ALL CHANGES"
+							buttonName="CHANGE PHOTO"
 							inProcess={inProcess}
 						/>
 						<AuthButton

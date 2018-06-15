@@ -6,11 +6,11 @@ import SingleNew from './SingleNew';
 
 class NoConversations extends Component {
 	state = {
-		articles: null,
+		articles: null
 	};
 	fetchNews = () => {
 		const url =
-			'https://newsapi.org/v2/top-headlines?sources=reddit-r-all&apiKey=8ad9f8271d2943ec911506b4c9c21106';
+			'https://newsapi.org/v2/top-headlines?country=ru&category=technology&apiKey=8ad9f8271d2943ec911506b4c9c21106';
 		fetch(url)
 			.then(response => {
 				if (response.status !== 200) {
@@ -29,6 +29,12 @@ class NoConversations extends Component {
 				console.log('Fetch Error :-S', err);
 			});
 	};
+
+	isOpen = e => {
+		e.preventDefault();
+		e.stopPropagation();
+		this.props.isActiveSidebar();
+	};
 	componentDidMount() {
 		this.fetchNews();
 	}
@@ -36,17 +42,15 @@ class NoConversations extends Component {
 		const { isActiveSidebar } = this.props;
 		const { articles } = this.state;
 		return (
-			<div className="chat__main no-conversations">
+			<div className="chat__main no-conversations" onClick={this.isOpen}>
 				<div className="chat__main__choose">
 					<h2 className="ui-text-headline">
 						NO ACTIVE CONVERSATIONS
 					</h2>
 					<button
 						className="ui-button ui-button_raised"
-						onClick={e => {
-							e.preventDefault();
-							isActiveSidebar();
-						}}>
+						onClick={this.isOpen}
+					>
 						<i className="fas fa-arrow-left" />
 						Choose user to chat
 					</button>
@@ -78,5 +82,5 @@ export default connect(
 )(NoConversations);
 
 NoConversations.propTypes = {
-	isActiveSidebar: PropTypes.func,
+	isActiveSidebar: PropTypes.func
 };
