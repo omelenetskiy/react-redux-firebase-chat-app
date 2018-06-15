@@ -80,7 +80,7 @@ class SingleMsg extends Component {
 					<div className="message__data__text">
 						<p>{text}</p>
 						{img ? (
-							<a href={img} target="_blank">
+							<a href={img}>
 								<img src={img} alt={img} />
 							</a>
 						) : null}
