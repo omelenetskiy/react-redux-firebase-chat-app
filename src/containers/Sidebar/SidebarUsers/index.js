@@ -36,9 +36,6 @@ class SidebarUsers extends Component {
 							: 0}
 						)
 					</h4>
-					<button className="ui-button ui-button_icon">
-						<i className="fas fa-chevron-down" />
-					</button>
 				</div>
 				<div className="sidebar__users__list">
 					{users && users.length > 1

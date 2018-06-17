@@ -6,6 +6,7 @@ import { isActiveSidebar } from '../../../actions/changeHeaderData';
 import logo from '../../../static/img/react/logo.png';
 import './header.sass';
 import { database } from '../../../configs/firebase';
+
 class ChatHeader extends Component {
 	state = {
 		headerName: '',

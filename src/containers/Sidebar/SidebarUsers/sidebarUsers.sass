@@ -8,6 +8,10 @@ $online: #4CAF50
 $offline: #FF7043
 
 .chat__sidebar__users
+    display: inline-flex
+    width: 100%
+    flex-direction: column
+    flex-grow: 1
     .sidebar__users__title
         width: 100%
         height: $sidebar-title-bar-height
@@ -20,7 +24,8 @@ $offline: #FF7043
         border-bottom: 1px solid $borser-separator-color
     .sidebar__users__list
         overflow: auto
-        height: $user-height * 4
+        max-height: $user-height * 4
+        flex-grow: 1
         a
             width: 100%
             display: inline-flex

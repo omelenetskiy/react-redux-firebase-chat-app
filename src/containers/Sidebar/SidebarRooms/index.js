@@ -8,9 +8,14 @@ import { channelsRef, offChannels } from '../../../actions/channelsRef';
 import './sidebarRooms.sass';
 
 class SidebarRooms extends Component {
-	state={
-		
-	}
+	state = {
+		accordeon: false
+	};
+	hideAccordeon = () => {
+		this.setState({
+			accordeon: !this.state.accordeon
+		});
+	};
 	componentDidMount() {
 		this.props.channelsRef();
 	}
@@ -19,6 +24,10 @@ class SidebarRooms extends Component {
 	}
 	render() {
 		const { isOpen, channels } = this.props;
+		const { accordeon } = this.state;
+		const style = {
+			height: 0
+		};
 		return (
 			<div className="chat__sidebar__rooms">
 				<div className="sidebar__rooms__title">
@@ -32,11 +41,21 @@ class SidebarRooms extends Component {
 					>
 						<i className="fas fa-plus" />
 					</button>
-					<button className="ui-button ui-button_icon">
-						<i className="fas fa-chevron-down" />
+					<button
+						className="ui-button ui-button_icon"
+						onClick={this.hideAccordeon}
+					>
+						{accordeon ? (
+							<i className="fas fa-chevron-up" />
+						) : (
+							<i className="fas fa-chevron-down" />
+						)}
 					</button>
 				</div>
-				<div className="sidebar__rooms__list">
+				<div
+					className="sidebar__rooms__list"
+					style={accordeon ? style : null}
+				>
 					{channels
 						? Object.values(channels).map((channel, index) => (
 								<NavLink

@@ -44,9 +44,7 @@ class NoConversations extends Component {
 		return (
 			<div className="chat__main no-conversations" onClick={this.isOpen}>
 				<div className="chat__main__choose">
-					<h2 className="ui-text-headline">
-						NO ACTIVE CONVERSATIONS
-					</h2>
+					<h2 className="ui-text-headline">NO ACTIVE CONVERSATION</h2>
 					<button
 						className="ui-button ui-button_raised"
 						onClick={this.isOpen}
