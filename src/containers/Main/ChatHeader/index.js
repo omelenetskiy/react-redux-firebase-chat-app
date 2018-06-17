@@ -25,6 +25,7 @@ class ChatHeader extends Component {
 					this.setState({
 						headerName: el.name,
 						lastSeen: 0,
+						online: 0,
 						createDate: el.createAt
 					});
 					if (!path.includes('rooms')) {
@@ -97,11 +98,7 @@ class ChatHeader extends Component {
 									: `Last seen ${this.getTime(lastSeen)}`}
 							</p>
 						) : (
-							<p>
-								{online
-									? 'Online'
-									: `Created at ${date.toUTCString()}`}
-							</p>
+							<p>{online ? 'Online' : 'Offline'}</p>
 						)}
 					</div>
 				</div>
