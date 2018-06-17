@@ -96,7 +96,11 @@ class ChatHeader extends Component {
 									: `Last seen ${this.getTime(lastSeen)}`}
 							</p>
 						) : (
-							<p>{`Created at ${date.toUTCString()}`}</p>
+							<p>
+								{online
+									? 'Online'
+									: `Created at ${date.toUTCString()}`}
+							</p>
 						)}
 					</div>
 				</div>

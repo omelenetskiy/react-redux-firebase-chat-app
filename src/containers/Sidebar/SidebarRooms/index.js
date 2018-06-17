@@ -8,6 +8,9 @@ import { channelsRef, offChannels } from '../../../actions/channelsRef';
 import './sidebarRooms.sass';
 
 class SidebarRooms extends Component {
+	state={
+		
+	}
 	componentDidMount() {
 		this.props.channelsRef();
 	}
