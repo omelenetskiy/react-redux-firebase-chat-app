@@ -43,7 +43,7 @@ class UserCard extends Component {
 								)}
 							</div>
 							<div className="file_upload">
-								<label>
+								<label title="choose image">
 									<i className="fas fa-camera fa-2x" />
 									<input
 										className="input-file"
@@ -112,7 +112,7 @@ const mapStateToProps = state => ({
 	authUser: state.authUser,
 	inProcess: state.authUser.inProcess,
 	file: state.changeFile.file,
-	fileName: state.changeFile.fileName,
+	fileName: state.changeFile.fileName
 });
 
 const matDispatchToProps = dispatch => {
@@ -120,7 +120,7 @@ const matDispatchToProps = dispatch => {
 		uploadPhoto: file => dispatch(uploadPhoto(file)),
 		deleteUser: history => dispatch(deleteUser(history)),
 		changeFile: file => dispatch(changeFile(file)),
-		closeFile: () => dispatch(closeFile()),
+		closeFile: () => dispatch(closeFile())
 	};
 };
 
@@ -138,5 +138,5 @@ UserCard.propTypes = {
 	changeFile: PropTypes.func,
 	closeFile: PropTypes.func,
 	fileName: PropTypes.string,
-	inProcess: PropTypes.bool,
+	inProcess: PropTypes.bool
 };

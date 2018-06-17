@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 
 class AuthButton extends Component {
 	render() {
-		const { className, icon, buttonName, inProcess, onClick } = this.props;
+		const {
+			className,
+			icon,
+			buttonName,
+			inProcess,
+			onClick,
+			title
+		} = this.props;
 		return (
 			<button
 				className={`ui-button ${className}`}
@@ -11,6 +18,7 @@ class AuthButton extends Component {
 					e.preventDefault();
 					onClick();
 				}}
+				title={title}
 			>
 				{inProcess ? (
 					<i className="fas fa-spinner fa-pulse" />
@@ -27,5 +35,5 @@ export default AuthButton;
 AuthButton.propTypes = {
 	onClick: PropTypes.func,
 	inProcess: PropTypes.bool,
-	icon: PropTypes.string,
+	icon: PropTypes.string
 };

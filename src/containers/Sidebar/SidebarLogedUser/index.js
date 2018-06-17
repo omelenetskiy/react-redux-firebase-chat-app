@@ -31,6 +31,7 @@ const SidebarLogedUser = ({ user, signOut }) => {
 					className="ui-button_icon"
 					onClick={signOut}
 					icon="fas fa-sign-out-alt"
+					title="sign out"
 				/>
 			</div>
 		</div>

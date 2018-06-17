@@ -50,7 +50,7 @@ class ChatForm extends Component {
 				) : null}
 				<div className="input__form">
 					<form onSubmit={() => this.privateMsg(sender, msg.trim())}>
-						<label>
+						<label title="choose image">
 							<i className="far fa-image fa-2x" />
 							<input
 								type="file"
