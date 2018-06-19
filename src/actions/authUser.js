@@ -4,7 +4,7 @@ import {
 	googleProvider,
 	facebookProvider,
 	githubProvider,
-	timestamp
+	timestamp,
 } from '../configs/firebase';
 import { errorOpen } from './error';
 
@@ -21,7 +21,7 @@ export const createNewUser = (name, email, password) => {
 				const signedUser = result;
 				signedUser
 					.updateProfile({
-						displayName: name
+						displayName: name,
 					})
 					.then(() => {
 						database.ref('users/' + signedUser.uid).set({
@@ -30,7 +30,7 @@ export const createNewUser = (name, email, password) => {
 							avatar: signedUser.photoURL,
 							email: signedUser.email,
 							online: 1,
-							createAt: timestamp
+							createAt: timestamp,
 						});
 						dispatch(setCurrentUser(signedUser));
 					});
@@ -70,7 +70,7 @@ export const googleAuth = () => {
 					avatar: signedUser.photoURL,
 					email: signedUser.email,
 					online: 0,
-					createAt: timestamp
+					createAt: timestamp,
 				});
 				dispatch(loginUserSuccessful());
 			})
@@ -93,7 +93,7 @@ export const facebookAuth = () => {
 					avatar: signedUser.photoURL,
 					email: signedUser.email,
 					online: 0,
-					createAt: timestamp
+					createAt: timestamp,
 				});
 				dispatch(loginUserSuccessful());
 			})
@@ -116,7 +116,7 @@ export const githubAuth = () => {
 					avatar: signedUser.photoURL,
 					email: signedUser.email,
 					online: 0,
-					createAt: timestamp
+					createAt: timestamp,
 				});
 				dispatch(loginUserSuccessful());
 			})
@@ -149,7 +149,7 @@ export const checkCurrentUser = () => {
 export const setCurrentUser = user => {
 	return {
 		type: SET_USER,
-		user
+		user,
 	};
 };
 
@@ -162,7 +162,9 @@ export const onlineUserManage = () => {
 					.ref(`/users/${uid}`)
 					.onDisconnect()
 					.update({ online: 0, lastSeen: timestamp });
-				database.ref(`/users/${uid}`).update({ online: 1, lastSeen: timestamp });
+				database
+					.ref(`/users/${uid}`)
+					.update({ online: 1, lastSeen: timestamp });
 			}
 		});
 	};
@@ -190,6 +192,12 @@ export const signOut = () => {
 		dispatch({ type: SIGN_OUT });
 		const uid = auth.currentUser.uid;
 		auth.signOut();
-		database.ref(`/users/${uid}`).update({ online: 0 });
+		database
+			.ref(`/users/${uid}`)
+			.update({ online: 0, lastSeen: timestamp });
+		database.ref('/messages').off();
+		database.ref('/users').off();
+		database.ref('/channels').off();
+		database.ref('/unreadMsgs').off();
 	};
 };

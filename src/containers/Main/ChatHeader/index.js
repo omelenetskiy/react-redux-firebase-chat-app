@@ -12,7 +12,7 @@ class ChatHeader extends Component {
 		headerName: '',
 		lastSeen: 0,
 		online: 0,
-		createDate: ''
+		createDate: '',
 	};
 	setHeader = () => {
 		const path = this.props.location.pathname;
@@ -26,13 +26,13 @@ class ChatHeader extends Component {
 						headerName: el.name,
 						lastSeen: 0,
 						online: 0,
-						createDate: el.createAt
+						createDate: el.createAt,
 					});
 					if (!path.includes('rooms')) {
 						this.setState({
 							lastSeen: el.lastSeen,
 							online: el.online,
-							createDate: ''
+							createDate: '',
 						});
 					}
 				}
@@ -83,8 +83,7 @@ class ChatHeader extends Component {
 					<button
 						className="ui-button ui-button_icon"
 						onClick={isActiveSidebar}
-						title="log out"
-					>
+						title="log out">
 						<i className="fas fa-2x fa-bars" />
 					</button>
 					<div>
@@ -98,7 +97,11 @@ class ChatHeader extends Component {
 									: `Last seen ${this.getTime(lastSeen)}`}
 							</p>
 						) : (
-							<p>{online ? 'Online' : 'Offline'}</p>
+							<p>
+								{online
+									? 'online'
+									: `Created at ${date.toUTCString()}`}
+							</p>
 						)}
 					</div>
 				</div>
@@ -118,5 +121,5 @@ export default withRouter(
 );
 
 ChatHeader.propTypes = {
-	isActiveSidebar: PropTypes.func
+	isActiveSidebar: PropTypes.func,
 };

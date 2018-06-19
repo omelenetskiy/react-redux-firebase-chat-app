@@ -9,11 +9,11 @@ import './sidebarRooms.sass';
 
 class SidebarRooms extends Component {
 	state = {
-		accordeon: false
+		accordeon: false,
 	};
 	hideAccordeon = () => {
 		this.setState({
-			accordeon: !this.state.accordeon
+			accordeon: !this.state.accordeon,
 		});
 	};
 	componentDidMount() {
@@ -26,7 +26,7 @@ class SidebarRooms extends Component {
 		const { isOpen, channels } = this.props;
 		const { accordeon } = this.state;
 		const style = {
-			height: 0
+			height: 0,
 		};
 		return (
 			<div className="chat__sidebar__rooms">
@@ -37,14 +37,12 @@ class SidebarRooms extends Component {
 					<button
 						className="ui-button ui-button_icon"
 						title="Add new channel"
-						onClick={() => isOpen(true)}
-					>
+						onClick={() => isOpen(true)}>
 						<i className="fas fa-plus" />
 					</button>
 					<button
 						className="ui-button ui-button_icon"
-						onClick={this.hideAccordeon}
-					>
+						onClick={this.hideAccordeon}>
 						{accordeon ? (
 							<i className="fas fa-chevron-up" />
 						) : (
@@ -54,16 +52,14 @@ class SidebarRooms extends Component {
 				</div>
 				<div
 					className="sidebar__rooms__list"
-					style={accordeon ? style : null}
-				>
+					style={accordeon ? style : null}>
 					{channels
 						? Object.values(channels).map((channel, index) => (
 								<NavLink
 									exact
 									to={`/rooms/${channel.id}`}
 									key={channel.id}
-									activeClassName="room_active"
-								>
+									activeClassName="room_active">
 									<SingleRoom channelName={channel.name} />
 								</NavLink>
 						  ))
@@ -76,14 +72,14 @@ class SidebarRooms extends Component {
 
 const mapStateToProps = state => ({
 	sender: state.authUser.currentUid,
-	channels: state.channels.channels
+	channels: state.channels.channels,
 });
 
 const mapDispatchToProps = dispatch => {
 	return {
 		isOpen: open => dispatch(isOpen(open)),
 		channelsRef: () => dispatch(channelsRef()),
-		offChannels: () => dispatch(offChannels())
+		offChannels: () => dispatch(offChannels()),
 	};
 };
 
@@ -99,5 +95,5 @@ SidebarRooms.propTypes = {
 	channelsRef: PropTypes.func,
 	offChannels: PropTypes.func,
 	sender: PropTypes.string,
-	channels: PropTypes.object
+	channels: PropTypes.object,
 };

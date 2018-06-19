@@ -57,8 +57,7 @@ class SidebarUsers extends Component {
 										exact
 										to={`/users/${user.id}`}
 										key={user.id}
-										activeClassName="user_active"
-									>
+										activeClassName="user_active">
 										<SidebarUser
 											avatar={user.avatar}
 											online={user.online}
@@ -78,13 +77,13 @@ class SidebarUsers extends Component {
 const mapStateToProps = state => ({
 	sender: state.authUser.currentUid,
 	users: state.users.users,
-	userSearch: state.userSearch
+	userSearch: state.userSearch,
 });
 
 const mapDispatchToProps = dispatch => {
 	return {
 		usersRef: () => dispatch(usersRef()),
-		offUsers: () => dispatch(offUsers())
+		offUsers: () => dispatch(offUsers()),
 	};
 };
 
@@ -100,5 +99,5 @@ SidebarUsers.propTypes = {
 	offUsers: PropTypes.func,
 	sender: PropTypes.string,
 	users: PropTypes.array,
-	userSearch: PropTypes.string
+	userSearch: PropTypes.string,
 };

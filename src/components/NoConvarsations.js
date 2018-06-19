@@ -6,7 +6,7 @@ import SingleNew from './SingleNew';
 
 class NoConversations extends Component {
 	state = {
-		articles: null
+		articles: null,
 	};
 	fetchNews = () => {
 		const url =
@@ -14,14 +14,9 @@ class NoConversations extends Component {
 		fetch(url)
 			.then(response => {
 				if (response.status !== 200) {
-					console.log(
-						'Looks like there was a problem. Status Code: ' +
-							response.status
-					);
 					return;
 				}
 				response.json().then(data => {
-					console.log(data.articles);
 					this.setState({ articles: data.articles });
 				});
 			})
@@ -39,7 +34,6 @@ class NoConversations extends Component {
 		this.fetchNews();
 	}
 	render() {
-		const { isActiveSidebar } = this.props;
 		const { articles } = this.state;
 		return (
 			<div className="chat__main no-conversations" onClick={this.isOpen}>
@@ -47,8 +41,7 @@ class NoConversations extends Component {
 					<h2 className="ui-text-headline">NO ACTIVE CONVERSATION</h2>
 					<button
 						className="ui-button ui-button_raised"
-						onClick={this.isOpen}
-					>
+						onClick={this.isOpen}>
 						<i className="fas fa-arrow-left" />
 						Choose user to chat
 					</button>
@@ -80,5 +73,5 @@ export default connect(
 )(NoConversations);
 
 NoConversations.propTypes = {
-	isActiveSidebar: PropTypes.func
+	isActiveSidebar: PropTypes.func,
 };
