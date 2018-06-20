@@ -13,7 +13,7 @@ import PublicRoute from '../../components/PublicRoute';
 class App extends Component {
 	state = {
 		authed: false,
-		loading: true
+		loading: true,
 	};
 	componentDidMount() {
 		this.removeListener = auth.onAuthStateChanged(user => {
@@ -21,12 +21,12 @@ class App extends Component {
 			if (user) {
 				this.setState({
 					authed: true,
-					loading: false
+					loading: false,
 				});
 			} else {
 				this.setState({
 					authed: false,
-					loading: false
+					loading: false,
 				});
 			}
 		});
