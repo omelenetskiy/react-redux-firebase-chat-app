@@ -2,7 +2,7 @@ $sidebar-title-bar-height: 54px
 $borser-separator-color: rgba(155, 155, 155, .2)
 $room-height: 45px
 $green-color: rgb(174, 213, 129)
-$green-color-light: rgba(174, 213, 129, .2)  
+$green-color-light: rgba(174, 213, 129, .2)
 $dark-green: #0B3835
 
 .chat__sidebar__rooms
@@ -22,6 +22,9 @@ $dark-green: #0B3835
         max-height: $room-height * 3
         overflow: auto
         flex-grow: 1
+        &>p
+            margin: 10px 0 10px 10px
+            display: inline-block
         a
             width: 100%
             display: inline-flex

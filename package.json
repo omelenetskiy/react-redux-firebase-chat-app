@@ -8,6 +8,17 @@
 		"start": "node ./server.js",
 		"test": "jest"
 	},
+	"jest": {
+		"setupFiles": [
+			"./test/jestsetup.js"
+		],
+		"snapshotSerializers": [
+			"<rootDir>/node_modules/enzyme-to-json/serializer"
+		],
+		"moduleNameMapper": {
+			"^.+\\.(css|sass)$": "identity-obj-proxy"
+		}
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/omelenetskiy/webpack-4-boilerplate.git"

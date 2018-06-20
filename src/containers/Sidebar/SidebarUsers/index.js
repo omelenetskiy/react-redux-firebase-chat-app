@@ -38,36 +38,38 @@ class SidebarUsers extends Component {
 					</h4>
 				</div>
 				<div className="sidebar__users__list">
-					{users && users.length > 1
-						? users
-								.filter(user => {
-									if (user.name) {
-										return (
-											user.name
-												.toLowerCase()
-												.includes(
-													userSearch.toLowerCase()
-												) && user.id !== sender
-										);
-									}
-									return null;
-								})
-								.map(user => (
-									<NavLink
-										exact
-										to={`/users/${user.id}`}
-										key={user.id}
-										activeClassName="user_active">
-										<SidebarUser
-											avatar={user.avatar}
-											online={user.online}
-											username={user.name}
-											lastMsg={user.lastMsg}
-											id={user.id}
-										/>
-									</NavLink>
-								))
-						: 'No users here'}
+					{users && users.length > 1 ? (
+						users
+							.filter(user => {
+								if (user.name) {
+									return (
+										user.name
+											.toLowerCase()
+											.includes(
+												userSearch.toLowerCase()
+											) && user.id !== sender
+									);
+								}
+								return null;
+							})
+							.map(user => (
+								<NavLink
+									exact
+									to={`/users/${user.id}`}
+									key={user.id}
+									activeClassName="user_active">
+									<SidebarUser
+										avatar={user.avatar}
+										online={user.online}
+										username={user.name}
+										lastMsg={user.lastMsg}
+										id={user.id}
+									/>
+								</NavLink>
+							))
+					) : (
+						<p>No users here</p>
+					)}
 				</div>
 			</div>
 		);

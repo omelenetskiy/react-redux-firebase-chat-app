@@ -24,8 +24,10 @@ $offline: #FF7043
         border-bottom: 1px solid $borser-separator-color
     .sidebar__users__list
         overflow: auto
-        max-height: $user-height * 4
         flex-grow: 1
+        &>p
+            margin: 10px 0 10px 10px
+            display: inline-block
         a
             width: 100%
             display: inline-flex

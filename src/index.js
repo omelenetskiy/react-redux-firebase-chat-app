@@ -15,8 +15,6 @@ const store = createStore(
 	composeWithDevTools(applyMiddleware(thunk))
 );
 
-// store.subscribe(() => console.log('store has updated', store.getState()));
-
 render(
 	<AppContainer>
 		<Provider store={store}>

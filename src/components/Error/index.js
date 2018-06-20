@@ -6,7 +6,7 @@ import './Error.sass';
 
 const success = {
 	backgroundColor: 'rgba(76, 175, 80, .8)',
-	color: '#ffffff'
+	color: '#ffffff',
 };
 
 const Error = ({ errorClose, isOpen, error, color }) => {
@@ -23,12 +23,12 @@ const Error = ({ errorClose, isOpen, error, color }) => {
 const mapStateToProps = state => ({
 	isOpen: state.error.isOpen,
 	error: state.error.error,
-	color: state.error.color
+	color: state.error.color,
 });
 
 const mapDispatchToProps = dispatch => {
 	return {
-		errorClose: () => dispatch(errorClose())
+		errorClose: () => dispatch(errorClose()),
 	};
 };
 
@@ -38,11 +38,11 @@ export default connect(
 )(Error);
 
 Error.defaultProps = {
-	color: 'success'
+	color: 'success',
 };
 
 Error.propTypes = {
 	errorClose: PropTypes.func,
 	isOpen: PropTypes.bool,
-	error: PropTypes.string
+	error: PropTypes.string,
 };

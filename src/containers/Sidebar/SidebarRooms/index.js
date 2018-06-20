@@ -53,17 +53,19 @@ class SidebarRooms extends Component {
 				<div
 					className="sidebar__rooms__list"
 					style={accordeon ? style : null}>
-					{channels
-						? Object.values(channels).map((channel, index) => (
-								<NavLink
-									exact
-									to={`/rooms/${channel.id}`}
-									key={channel.id}
-									activeClassName="room_active">
-									<SingleRoom channelName={channel.name} />
-								</NavLink>
-						  ))
-						: 'No rooms here'}
+					{channels ? (
+						Object.values(channels).map((channel, index) => (
+							<NavLink
+								exact
+								to={`/rooms/${channel.id}`}
+								key={channel.id}
+								activeClassName="room_active">
+								<SingleRoom channelName={channel.name} />
+							</NavLink>
+						))
+					) : (
+						<p>No rooms here</p>
+					)}
 				</div>
 			</div>
 		);
