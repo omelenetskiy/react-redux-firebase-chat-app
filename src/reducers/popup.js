@@ -1,8 +1,7 @@
 import { OPEN_POPUP } from '../actions/isOpen';
 
 const initialState = {
-	createChannel: false,
-	attachments: true
+	createChannel: false
 };
 
 export const popup = (state = initialState, action) => {

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isActiveSidebar } from '../actions/changeHeaderData';
-import SingleNew from './SingleNew';
+import SingleNew from './SingleNews';
 
 class NoConversations extends Component {
 	state = {
-		articles: null,
+		articles: null
 	};
 	fetchNews = () => {
 		const url =
@@ -41,7 +41,8 @@ class NoConversations extends Component {
 					<h2 className="ui-text-headline">NO ACTIVE CONVERSATION</h2>
 					<button
 						className="ui-button ui-button_raised"
-						onClick={this.isOpen}>
+						onClick={this.isOpen}
+					>
 						<i className="fas fa-arrow-left" />
 						Choose user to chat
 					</button>
@@ -73,5 +74,5 @@ export default connect(
 )(NoConversations);
 
 NoConversations.propTypes = {
-	isActiveSidebar: PropTypes.func,
+	isActiveSidebar: PropTypes.func
 };
