@@ -6,7 +6,8 @@
 	"scripts": {
 		"build": "NODE_ENV=production webpack-cli",
 		"start": "node ./server.js",
-		"test": "jest"
+		"test": "jest",
+		"test:watch": "jest --watch"
 	},
 	"repository": {
 		"type": "git",
@@ -29,6 +30,7 @@
 		"express": "4.16.3",
 		"firebase": "^4.13.1",
 		"history": "^4.7.2",
+		"identity-obj-proxy": "^3.0.0",
 		"jest": "^23.1.0",
 		"mini-css-extract-plugin": "0.4.0",
 		"node-sass": "4.9.0",
@@ -40,6 +42,7 @@
 		"react-redux": "^5.0.7",
 		"react-router-dom": "^4.2.2",
 		"redux": "^4.0.0",
+		"redux-devtools-extension": "^2.13.2",
 		"redux-thunk": "^2.2.0",
 		"sass-loader": "7.0.1",
 		"style-loader": "0.21.0",
@@ -50,6 +53,7 @@
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"enzyme": "^3.3.0",
 		"file-loader": "^1.1.11",
+		"jest-static-stubs": "0.0.1",
 		"webpack-dev-middleware": "3.1.3",
 		"webpack-hot-middleware": "2.22.2"
 	}
