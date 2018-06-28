@@ -1,14 +1,16 @@
-import { OPEN_POPUP } from '../actions/isOpen';
+import { OPEN_POPUP } from '../actions/isOpenPopup';
 
 const initialState = {
-	createChannel: false
+  createChannel: false,
 };
 
-export const popup = (state = initialState, action) => {
-	switch (action.type) {
-		case OPEN_POPUP:
-			return { ...state, createChannel: action.open };
-		default:
-			return state;
-	}
+const popup = (state = initialState, action) => {
+  switch (action.type) {
+    case OPEN_POPUP:
+      return { ...state, createChannel: action.open };
+    default:
+      return state;
+  }
 };
+
+export default popup;

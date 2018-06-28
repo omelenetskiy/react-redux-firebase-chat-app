@@ -1,11 +1,12 @@
 import * as firebase from 'firebase';
+
 const config = {
-	apiKey: 'AIzaSyBlBaMvCkRvfTxPicUi40aZCeux2jByrMM',
-	authDomain: 'react-chat-app-70785.firebaseapp.com',
-	databaseURL: 'https://react-chat-app-70785.firebaseio.com',
-	projectId: 'react-chat-app-70785',
-	storageBucket: 'react-chat-app-70785.appspot.com',
-	messagingSenderId: '417592457768'
+  apiKey: 'AIzaSyBlBaMvCkRvfTxPicUi40aZCeux2jByrMM',
+  authDomain: 'react-chat-app-70785.firebaseapp.com',
+  databaseURL: 'https://react-chat-app-70785.firebaseio.com',
+  projectId: 'react-chat-app-70785',
+  storageBucket: 'react-chat-app-70785.appspot.com',
+  messagingSenderId: '417592457768',
 };
 firebase.initializeApp(config);
 

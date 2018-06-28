@@ -1,39 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class AuthButton extends Component {
-	render() {
-		const {
-			className,
-			icon,
-			buttonName,
-			inProcess,
-			onClick,
-			title
-		} = this.props;
-		return (
-			<button
-				className={`ui-button ${className}`}
-				onClick={e => {
-					e.preventDefault();
-					onClick();
-				}}
-				title={title}
-			>
-				{inProcess ? (
-					<i className="fas fa-spinner fa-pulse" />
-				) : (
-					buttonName || <i className={icon} />
-				)}
-			</button>
-		);
-	}
-}
+const AuthButton = ({
+  className, icon, buttonName, inProcess, onClick, title,
+}) => (
+  <button
+    type="button"
+    className={`ui-button ${className}`}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick();
+    }}
+    title={title}
+  >
+    {inProcess ? <i className="fas fa-spinner fa-pulse" /> : buttonName || <i className={icon} />}
+  </button>
+);
 
 export default AuthButton;
 
+AuthButton.defaultProps = {
+  buttonName: '',
+  inProcess: false,
+  title: '',
+  icon: null,
+};
+
 AuthButton.propTypes = {
-	onClick: PropTypes.func,
-	inProcess: PropTypes.bool,
-	icon: PropTypes.string
+  className: PropTypes.string.isRequired,
+  buttonName: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  inProcess: PropTypes.bool,
+  icon: PropTypes.string,
+  title: PropTypes.string,
 };

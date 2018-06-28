@@ -10,54 +10,56 @@ import { onlineUserManage, checkCurrentUser } from '../../actions/authUser';
 import './chat.sass';
 
 class Home extends Component {
-	componentDidMount() {
-		this.props.checkCurrentUser();
-		this.props.onlineUserManage();
-	}
-	render() {
-		const { createChannel } = this.props;
-		return (
-			<div className="chat">
-				<Switch>
-					<Route path="/settings" render={() => <UserInfo />} />
-					<Route
-						path="/"
-						render={() => {
-							return (
-								<React.Fragment>
-									<Sidebar />
-									<Main />
-								</React.Fragment>
-							);
-						}}
-					/>
-				</Switch>
-				{createChannel ? <CreateChannel /> : null}
-			</div>
-		);
-	}
+  componentDidMount() {
+    const { checkCurrent, onlineUser } = this.props;
+    checkCurrent();
+    onlineUser();
+  }
+
+  render() {
+    const { createChannel } = this.props;
+    return (
+      <div className="chat">
+        <Switch>
+          <Route path="/settings" render={() => <UserInfo />} />
+          <Route
+            path="/"
+            render={() => (
+              <React.Fragment>
+                <Sidebar />
+                <Main />
+              </React.Fragment>
+            )}
+          />
+        </Switch>
+        {createChannel ? <CreateChannel /> : null}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-	createChannel: state.popup.createChannel
+  createChannel: state.popup.createChannel,
 });
 
-const mapDispatchToProps = dispatch => {
-	return {
-		onlineUserManage: () => dispatch(onlineUserManage()),
-		checkCurrentUser: () => dispatch(checkCurrentUser())
-	};
-};
+const mapDispatchToProps = dispatch => ({
+  onlineUser: () => dispatch(onlineUserManage()),
+  checkCurrent: () => dispatch(checkCurrentUser()),
+});
 
 export default withRouter(
-	connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(Home)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Home),
 );
 
+Home.defaultProps = {
+  createChannel: false,
+};
+
 Home.propTypes = {
-	createChannel: PropTypes.bool,
-	onlineUserManage: PropTypes.func,
-	checkCurrentUser: PropTypes.func
+  createChannel: PropTypes.bool,
+  onlineUser: PropTypes.func.isRequired,
+  checkCurrent: PropTypes.func.isRequired,
 };

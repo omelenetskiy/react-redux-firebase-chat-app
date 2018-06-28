@@ -3,99 +3,103 @@ import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SingleRoom from '../../../components/SingleRoom';
-import { isOpen } from '../../../actions/isOpen';
+import { isOpenPopup } from '../../../actions/isOpenPopup';
 import { channelsRef, offChannels } from '../../../actions/channelsRef';
 import './sidebarRooms.sass';
 
 class SidebarRooms extends Component {
-	state = {
-		accordeon: false,
-	};
-	hideAccordeon = () => {
-		this.setState({
-			accordeon: !this.state.accordeon,
-		});
-	};
-	componentDidMount() {
-		this.props.channelsRef();
-	}
-	componentWillUnmount() {
-		this.props.offChannels();
-	}
-	render() {
-		const { isOpen, channels } = this.props;
-		const { accordeon } = this.state;
-		const style = {
-			height: 0,
-		};
-		return (
-			<div className="chat__sidebar__rooms">
-				<div className="sidebar__rooms__title">
-					<h4>
-						ROOMS ({channels ? Object.values(channels).length : 0})
-					</h4>
-					<button
-						className="ui-button ui-button_icon"
-						title="Add new channel"
-						onClick={() => isOpen(true)}>
-						<i className="fas fa-plus" />
-					</button>
-					<button
-						className="ui-button ui-button_icon"
-						onClick={this.hideAccordeon}>
-						{accordeon ? (
-							<i className="fas fa-chevron-up" />
-						) : (
-							<i className="fas fa-chevron-down" />
-						)}
-					</button>
-				</div>
-				<div
-					className="sidebar__rooms__list"
-					style={accordeon ? style : null}>
-					{channels ? (
-						Object.values(channels).map((channel, index) => (
-							<NavLink
-								exact
-								to={`/rooms/${channel.id}`}
-								key={channel.id}
-								activeClassName="room_active">
-								<SingleRoom channelName={channel.name} />
-							</NavLink>
-						))
-					) : (
-						<p>No rooms here</p>
-					)}
-				</div>
-			</div>
-		);
-	}
+  state = {
+    accordeon: false,
+  };
+
+  hideAccordeon = () => {
+    this.setState({
+      accordeon: !this.state.accordeon,
+    });
+  };
+
+  componentDidMount() {
+    this.props.channelsRef();
+  }
+
+  componentWillUnmount() {
+    this.props.offChannels();
+  }
+
+  render() {
+    const { isOpen, channels } = this.props;
+    const { accordeon } = this.state;
+    const style = {
+      height: 0,
+    };
+    return (
+      <div className="chat__sidebar__rooms">
+        <div className="sidebar__rooms__title">
+          <h4>
+            ROOMS (
+            {channels ? Object.values(channels).length : 0}
+            )
+          </h4>
+          <button
+            className="ui-button ui-button_icon"
+            title="Add new channel"
+            onClick={() => isOpen(true)}
+          >
+            <i className="fas fa-plus" />
+          </button>
+          <button className="ui-button ui-button_icon" onClick={this.hideAccordeon}>
+            {accordeon ? (
+              <i className="fas fa-chevron-up" />
+            ) : (
+              <i className="fas fa-chevron-down" />
+            )}
+          </button>
+        </div>
+        <div className="sidebar__rooms__list" style={accordeon ? style : null}>
+          {channels ? (
+            Object.values(channels).map((channel, index) => (
+              <NavLink
+                exact
+                to={`/rooms/${channel.id}`}
+                key={channel.id}
+                activeClassName="room_active"
+              >
+                <SingleRoom channelName={channel.name} />
+              </NavLink>
+            ))
+          ) : (
+            <p>
+No rooms here
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-	sender: state.authUser.currentUid,
-	channels: state.channels.channels,
+  sender: state.authUser.currentUid,
+  channels: state.channels.channels,
 });
 
-const mapDispatchToProps = dispatch => {
-	return {
-		isOpen: open => dispatch(isOpen(open)),
-		channelsRef: () => dispatch(channelsRef()),
-		offChannels: () => dispatch(offChannels()),
-	};
-};
+const mapDispatchToProps = dispatch => ({
+  isOpen: open => dispatch(isOpenPopup(open)),
+  channelsRef: () => dispatch(channelsRef()),
+  offChannels: () => dispatch(offChannels()),
+});
 
 export default withRouter(
-	connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(SidebarRooms)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(SidebarRooms),
 );
 
 SidebarRooms.propTypes = {
-	isOpen: PropTypes.func,
-	channelsRef: PropTypes.func,
-	offChannels: PropTypes.func,
-	sender: PropTypes.string,
-	channels: PropTypes.object,
+  isOpen: PropTypes.func,
+  channelsRef: PropTypes.func,
+  offChannels: PropTypes.func,
+  sender: PropTypes.string,
+  channels: PropTypes.object,
 };
