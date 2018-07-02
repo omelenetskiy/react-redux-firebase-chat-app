@@ -25,7 +25,7 @@ const SingleNew = ({
 export default SingleNew;
 
 SingleNew.defaultProps = {
-  urlToImage: false,
+  urlToImage: '',
   url: '#',
   description: '',
   title: '',

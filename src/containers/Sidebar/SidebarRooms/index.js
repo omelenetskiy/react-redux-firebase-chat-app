@@ -12,19 +12,22 @@ class SidebarRooms extends Component {
     accordeon: false,
   };
 
-  hideAccordeon = () => {
-    this.setState({
-      accordeon: !this.state.accordeon,
-    });
-  };
-
   componentDidMount() {
-    this.props.channelsRef();
+    const { channelsRef } = this.props;
+    channelsRef();
   }
 
   componentWillUnmount() {
-    this.props.offChannels();
+    const { offChannels } = this.props;
+    offChannels();
   }
+
+  hideAccordeon = () => {
+    const { accordeon } = this.state;
+    this.setState({
+      accordeon: !accordeon,
+    });
+  };
 
   render() {
     const { isOpen, channels } = this.props;
@@ -41,13 +44,14 @@ class SidebarRooms extends Component {
             )
           </h4>
           <button
+            type="button"
             className="ui-button ui-button_icon"
             title="Add new channel"
             onClick={() => isOpen(true)}
           >
             <i className="fas fa-plus" />
           </button>
-          <button className="ui-button ui-button_icon" onClick={this.hideAccordeon}>
+          <button type="button" className="ui-button ui-button_icon" onClick={this.hideAccordeon}>
             {accordeon ? (
               <i className="fas fa-chevron-up" />
             ) : (
@@ -57,7 +61,7 @@ class SidebarRooms extends Component {
         </div>
         <div className="sidebar__rooms__list" style={accordeon ? style : null}>
           {channels ? (
-            Object.values(channels).map((channel, index) => (
+            Object.values(channels).map(channel => (
               <NavLink
                 exact
                 to={`/rooms/${channel.id}`}
@@ -79,7 +83,6 @@ No rooms here
 }
 
 const mapStateToProps = state => ({
-  sender: state.authUser.currentUid,
   channels: state.channels.channels,
 });
 
@@ -96,10 +99,13 @@ export default withRouter(
   )(SidebarRooms),
 );
 
+SidebarRooms.defaultProps = {
+  channels: {},
+};
+
 SidebarRooms.propTypes = {
-  isOpen: PropTypes.func,
-  channelsRef: PropTypes.func,
-  offChannels: PropTypes.func,
-  sender: PropTypes.string,
+  isOpen: PropTypes.func.isRequired,
+  channelsRef: PropTypes.func.isRequired,
+  offChannels: PropTypes.func.isRequired,
   channels: PropTypes.object,
 };

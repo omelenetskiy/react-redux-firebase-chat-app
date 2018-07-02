@@ -9,6 +9,7 @@ import channels from './channels';
 import error from './error';
 import progress from './progress';
 import changeFile from './changeFile';
+import news from './news';
 
 const reducers = combineReducers({
   authUser,
@@ -21,6 +22,7 @@ const reducers = combineReducers({
   error,
   progress,
   changeFile,
+  news,
 });
 
 export default reducers;

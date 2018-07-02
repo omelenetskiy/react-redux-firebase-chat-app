@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isActiveSidebar } from '../actions/changeHeaderData';
+import fetchNews from '../actions/fetchNews';
 import SingleNew from './SingleNews';
 
 class NoConversations extends Component {
-  state = {
-    articles: null,
-  };
-
   componentDidMount() {
-    this.fetchNews();
+    const { fetchNews } = this.props;
+    fetchNews();
   }
 
   isOpen = (e) => {
@@ -20,24 +18,8 @@ class NoConversations extends Component {
     activeSidebar();
   };
 
-  fetchNews = () => {
-    const url = 'https://newsapi.org/v2/top-headlines?country=ru&category=technology&apiKey=8ad9f8271d2943ec911506b4c9c21106';
-    fetch(url)
-      .then((response) => {
-        if (response.status !== 200) {
-          return;
-        }
-        response.json().then((data) => {
-          this.setState({ articles: data.articles });
-        });
-      })
-      .catch((err) => {
-        throw new Error(err);
-      });
-  };
-
   render() {
-    const { articles } = this.state;
+    const { news } = this.props;
     return (
       <div
         className="chat__main no-conversations"
@@ -56,8 +38,8 @@ NO ACTIVE CONVERSATION
           </button>
         </div>
         <div className="chat__main__news">
-          {articles
-            ? articles.map((article, ind) => {
+          {news !== null && news.length
+            ? news.map((article, ind) => {
               if (ind < 4) {
                 return (
                   <SingleNew
@@ -65,7 +47,7 @@ NO ACTIVE CONVERSATION
                     urlToImage={article.urlToImage}
                     title={article.title}
                     description={article.description}
-                    key={article.url}
+                    key={ind}
                   />
                 );
               }
@@ -78,15 +60,22 @@ NO ACTIVE CONVERSATION
   }
 }
 
+const mapStateToProps = state => ({
+  news: state.news.news,
+});
+
 const mapDispatchToProps = dispatch => ({
   activeSidebar: () => dispatch(isActiveSidebar()),
+  fetchNews: () => dispatch(fetchNews()),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(NoConversations);
 
 NoConversations.propTypes = {
+  fetchNews: PropTypes.func.isRequired,
   activeSidebar: PropTypes.func.isRequired,
+  news: PropTypes.array.isRequired,
 };

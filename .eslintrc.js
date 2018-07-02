@@ -3,12 +3,15 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
     allowImportExportEverywhere: false,
-    codeFrame: false
+    codeFrame: false,
   },
   extends: 'airbnb',
   plugins: ['react', 'jsx-a11y', 'import'],
   rules: {
+    'no-array-index-key': 0,
+    'no-alert': 'off',
     'react/forbid-prop-types': 0,
+    'class-methods-use-this': 'off',
     'no-shadow': 'off',
     'prefer-destructuring': ['error', { object: false, array: false }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
@@ -18,20 +21,20 @@ module.exports = {
       {
         components: ['Label'],
         required: {
-          every: ['nesting']
+          every: ['nesting'],
         },
-        allowChildren: false
-      }
-    ]
+        allowChildren: false,
+      },
+    ],
   },
   env: {
     es6: true,
     node: true,
-    browser: true
+    browser: true,
   },
   globals: {
     document: true,
     foo: true,
-    window: true
-  }
+    window: true,
+  },
 };

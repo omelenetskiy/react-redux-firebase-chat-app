@@ -8,29 +8,25 @@ import SidebarRooms from './SidebarRooms';
 import SidebarUsers from './SidebarUsers';
 import './sidebar.sass';
 
-const Sidebar = ({ isActive }) => {
-	return (
-		<div
-			className={
-				isActive
-					? 'chat__sidebar chat__sidebar_active'
-					: 'chat__sidebar'
-			}
-		>
-			<SidebarLogedUser />
-			<SidebarSearch />
-			<SidebarRooms />
-			<SidebarUsers />
-		</div>
-	);
-};
+const Sidebar = ({ isActive }) => (
+  <div className={isActive ? 'chat__sidebar chat__sidebar_active' : 'chat__sidebar'}>
+    <SidebarLogedUser />
+    <SidebarSearch />
+    <SidebarRooms />
+    <SidebarUsers />
+  </div>
+);
 
 const matStateToProps = state => ({
-	isActive: state.chatHeader.isActive
+  isActive: state.chatHeader.isActive,
 });
 
 export default withRouter(connect(matStateToProps)(Sidebar));
 
+Sidebar.defaultProps = {
+  isActive: false,
+};
+
 Sidebar.propTypes = {
-	isActive: PropTypes.bool
+  isActive: PropTypes.bool,
 };
