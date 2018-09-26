@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField should render input 1`] = `
+<label
+  className="ui-field"
+>
+  <input
+    name="text"
+    onChange={[MockFunction]}
+    type="text"
+    value="Type here..."
+  />
+  <span>
+    Text field
+  </span>
+</label>
+`;

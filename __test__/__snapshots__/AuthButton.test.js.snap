@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`auth button render button 1`] = `
+<button
+  className="ui-button class"
+  onClick={[Function]}
+  title=""
+  type="button"
+>
+  <i
+    className={null}
+  />
+</button>
+`;
